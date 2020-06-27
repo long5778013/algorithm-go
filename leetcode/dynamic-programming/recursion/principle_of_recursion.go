@@ -1,4 +1,4 @@
-package main
+package recursion
 
 func reverseString(s []byte) {
 	length := len(s)
