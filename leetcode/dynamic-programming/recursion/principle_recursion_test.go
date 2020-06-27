@@ -3,7 +3,6 @@ package recursion
 import (
 	"strings"
 	"testing"
-	_ "testing"
 )
 
 func Test_ReverseString(t *testing.T) {
