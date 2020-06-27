@@ -13,3 +13,26 @@
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+
+/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### Custom ###
+logs/
+
+### MacOS ###
+.DS_Store
