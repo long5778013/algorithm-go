@@ -10,7 +10,7 @@ package recursion
 //你可以迭代或递归地反转链表。你能否用两种方法解决这道题？
 
 // 调换动作传递
-func reverseList(head *ListNode) *ListNode {
+func reverseListIteration(head *ListNode) *ListNode {
 	// 1前为nil
 	var prev *ListNode = nil
 	var next *ListNode = nil
@@ -26,4 +26,15 @@ func reverseList(head *ListNode) *ListNode {
 		head = next
 	}
 	return prev
+}
+
+// 递归
+func reverseListRecursion(head *ListNode) *ListNode {
+	if head == nil || head.Next == nil {
+		return head
+	}
+	p := reverseListRecursion(head.Next)
+	head.Next.Next = head
+	head.Next = nil
+	return p
 }
