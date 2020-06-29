@@ -15,3 +15,10 @@ func Test_PascalTriangle(t *testing.T) {
 
 	t.Log("PascalTriangle success")
 }
+func Test_PascalTriangleIIGetRow(t *testing.T) {
+	for i, v := range getRow(4) {
+		println(i, v)
+	}
+
+	t.Log("PascalTriangleIIGetRow success")
+}

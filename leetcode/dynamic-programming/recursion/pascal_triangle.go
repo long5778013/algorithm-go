@@ -54,3 +54,46 @@ func generate(numRows int) [][]int {
 
 	return arr
 }
+
+// 给定一个非负索引 k，其中 k ≤ 33，返回杨辉三角的第 k 行。
+//
+//
+//
+//在杨辉三角中，每个数是它左上方和右上方的数的和。
+//
+//示例:
+//
+//输入: 3
+//输出: [1,3,3,1]
+//进阶：
+//
+//你可以优化你的算法到 O(k) 空间复杂度吗？
+//func getRow(rowIndex int) []int {
+//	return generate(rowIndex + 1)[rowIndex]
+//}
+
+func getRow(rowIndex int) []int {
+	// 优化空间使用，此题目无需同时生成完整数组
+	if rowIndex < 0 {
+		return make([]int, 0)
+	}
+
+	arr := make([]int, rowIndex+1)
+	// 缓存上一行结果
+	prevRow := make([]int, rowIndex+1)
+
+	for row := 0; row <= rowIndex; row++ {
+		for col := 0; col <= row; col++ {
+			if col == 0 || col == row {
+				arr[col] = 1
+				prevRow[col] = 1
+			} else {
+				arr[col] = prevRow[col-1] + prevRow[col]
+			}
+		}
+		for i := range arr {
+			prevRow[i] = arr[i]
+		}
+	}
+	return arr
+}
